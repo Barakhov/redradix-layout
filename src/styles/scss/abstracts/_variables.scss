@@ -1,6 +1,25 @@
+/* Variables */
+
+// Breakpoints
+
+$breakpoints: (
+    sm: 480px,
+    md: 768px,
+    lg: 1024px
+);
+
 // Colors
 
 $color-primary: #36F5BF;
 $color-secondary: #282828;
 $color-white: #FFFFFF;
 $color-grey: #E5E5E5;
+
+
+// Fonts
+
+$font-family: 'Poppins', sans-serif;
+$font-base: 16px;
+
+$font-weight-base: 400;
+$font-weight-heading: 700;
