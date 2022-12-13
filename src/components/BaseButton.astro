@@ -45,7 +45,9 @@ const { to, aria, secondary = '' } = Astro.props
     text-align: center;
     text-decoration: none;
 
-    /*transition: all $base-timing ease-in-out;*/
+    transition-duration: $base-timing;
+    transition-timing-function: $base-cubic-bezier;
+    transition-property: color, background-color, border-color, box-shadow;
 
     @include media(md) {
       max-width: $button-max-width-d;
