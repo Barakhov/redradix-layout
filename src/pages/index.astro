@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/BaseLayout.astro'
+import Button from '../components/BaseButton.astro'
 ---
 
 <Layout
@@ -11,11 +12,11 @@ import Layout from '../layouts/BaseLayout.astro'
       <img
         src="/assets/images/hero-image.webp"
         alt="Clean and minimal desk setup"
+        loading="lazy"
       />
     </div>
 
     <div class="hero__content">
-      <div class="container"></div>
       <h1 class="hero__title">
         <span class="hero__title-word">Calidad,</span>
         como
@@ -25,7 +26,12 @@ import Layout from '../layouts/BaseLayout.astro'
         Diseño de experiencia de usuario Maquetación y diseño responsive
         Desarrollo por sprints
       </p>
-      <div class="hero__buttons"></div>
+      <div class="hero__buttons">
+        <Button to="/" aria="Link to Start page">Empezar</Button>
+        <Button to="/" secondary={true} aria="Link to Contact page"
+          >Contacto</Button
+        >
+      </div>
     </div>
   </section>
 </Layout>
@@ -66,7 +72,7 @@ import Layout from '../layouts/BaseLayout.astro'
       padding: 0 $space-m;
 
       @include media(md) {
-        padding: 0 $space-m 0 0;
+        padding: 0 $space-l 0 0;
         display: flex;
         flex-direction: column;
         justify-content: center;

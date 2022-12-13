@@ -1,0 +1,71 @@
+---
+export interface Props {
+  to: string
+  aria: string
+  secondary?: boolean
+}
+
+const { to, aria, secondary = '' } = Astro.props
+---
+
+<a
+  href={to}
+  class={`button ${secondary && 'button__secondary'}`}
+  aria-label={aria}
+>
+  <slot />
+</a>
+
+<style lang="scss">
+  @import '../styles/scss/abstracts/_variables';
+  @import '../styles/scss/abstracts/_mixins';
+
+  $button-max-width-d: 150px;
+  $button-hover-shadow: 0 4px 16px -4px;
+  $button-hover-lighten: 40%;
+  $button-font-size: 18px;
+  $button-line-height: 27px;
+
+  .button {
+    cursor: pointer;
+    display: block;
+    width: 100%;
+
+    color: $color-secondary;
+    background-color: $color-primary;
+    border: 1px solid;
+    border-color: $color-primary;
+    padding: $space-m 0;
+
+    font-size: $button-font-size;
+    line-height: $button-line-height;
+
+    text-align: center;
+    text-decoration: none;
+
+    transition: all $base-timing ease-in-out;
+
+    @include media(md) {
+      max-width: $button-max-width-d;
+    }
+
+    &:hover {
+      color: $color-white;
+      background-color: $color-secondary;
+      border-color: $color-secondary;
+      box-shadow: $button-hover-shadow
+        lighten($color-secondary, $button-hover-lighten);
+    }
+
+    &__secondary {
+      color: $color-white;
+      background-color: $color-secondary;
+      border-color: $color-secondary;
+
+      &:hover {
+        color: $color-secondary;
+        background-color: lighten($color-primary, $button-hover-lighten);
+      }
+    }
+  }
+</style>
