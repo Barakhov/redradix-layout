@@ -8,14 +8,14 @@ import Button from '../components/BaseButton.astro'
   description="This is a meta description for this page"
 >
   <section class="hero">
-    <div class="hero__image">
+    <div class="hero__image-container">
       <img
+        class="hero__image"
         src="/assets/images/hero-image.webp"
         alt="Clean and minimal desk setup"
         loading="lazy"
       />
     </div>
-
     <div class="hero__content">
       <h1 class="hero__title">
         <span class="hero__title-word">Calidad,</span>
@@ -40,10 +40,12 @@ import Button from '../components/BaseButton.astro'
   @import '../styles/scss/abstracts/_variables';
   @import '../styles/scss/abstracts/_mixins';
 
+  /* Local variables */
   $hero-image-width-m: 57%;
   $hero-image-width-d: 650px;
   $hero-title-width-d: 366px;
   $hero-text-width-d: 304px;
+  $hero-image-bg-color: #ededef;
 
   .hero {
     @include media(md) {
@@ -54,8 +56,11 @@ import Button from '../components/BaseButton.astro'
       margin-inline: auto;
     }
 
-    &__image {
+    &__image-container {
       margin-bottom: $space-l;
+      overflow: hidden;
+      background-color: $hero-image-bg-color;
+      display: flex;
 
       @include media(md) {
         margin-bottom: 0;
@@ -66,6 +71,17 @@ import Button from '../components/BaseButton.astro'
         margin-bottom: 0;
         max-width: $hero-image-width-d;
       }
+    }
+
+    &__image {
+      aspect-ratio: 130 / 123;
+
+      opacity: 0;
+      -webkit-filter: blur(8px);
+      transform: scale(1.2);
+      transform-origin: center;
+      animation: imageShow $base-timing * 4 $base-cubic-bezier $base-timing * 2
+        forwards;
     }
 
     &__content {

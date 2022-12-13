@@ -45,9 +45,14 @@
 
     &__logo {
       max-width: $logo-width-m;
+      transition: all $base-timing * 4 $base-cubic-bezier;
 
       @include media(md) {
         max-width: $logo-width-d;
+      }
+
+      &:hover {
+        transform: rotate(360deg);
       }
     }
 
