@@ -22,13 +22,51 @@
      }
  }
 
-
  .container {
      width: min(100% - ($space-m * 2), $container-width);
      margin-inline: auto;
 
-
      @include media(md) {
          width: min(100% - ($space-l * 2), $container-width);
+     }
+ }
+
+ // heading highlight caret
+
+ $heading-highligh-icon-width: clamp(1.25rem, 2.55vw + 0.65rem, 2.5rem);
+ $heading-highligh-icon-height: clamp(0.63rem, 1.28vw + 0.33rem, 1.25rem);
+
+ .heading-highlight {
+     position: relative;
+     padding-right: calc($space-xs + $heading-highligh-icon-width);
+     white-space: nowrap;
+
+     &::before {
+         content: '';
+         display: block;
+         background-image: url('/assets/icons/caret-down-icon.svg');
+         background-repeat: no-repeat;
+         background-position: center;
+         width: $heading-highligh-icon-width;
+         height: $heading-highligh-icon-height;
+         position: absolute;
+         right: 0;
+         top: 50%;
+         transform: translateY(-33%);
+     }
+
+     &::after {
+         content: '';
+         display: block;
+         width: 100%;
+         height: 2px;
+         background-color: $color-grey;
+         position: absolute;
+         bottom: 6px;
+         left: 0;
+
+         @include media(md) {
+             height: 4px;
+         }
      }
  }

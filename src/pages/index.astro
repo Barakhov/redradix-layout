@@ -16,7 +16,11 @@ import Layout from '../layouts/BaseLayout.astro'
 
     <div class="hero__content">
       <div class="container"></div>
-      <h1 class="hero__title">Calidad, como cualidad</h1>
+      <h1 class="hero__title">
+        <span class="hero__title-word">Calidad,</span>
+        como
+        <span class="heading-highlight">cualidad</span>
+      </h1>
       <p class="hero__text">
         Diseño de experiencia de usuario Maquetación y diseño responsive
         Desarrollo por sprints
@@ -72,6 +76,14 @@ import Layout from '../layouts/BaseLayout.astro'
     &__title {
       @include media(md) {
         max-width: $hero-title-width-d;
+      }
+    }
+
+    &__title-word {
+      display: block;
+
+      @include media(md) {
+        display: inline;
       }
     }
 
