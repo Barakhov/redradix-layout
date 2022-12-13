@@ -2,9 +2,7 @@
 
 This layout test is built with [Astro](https://astro.build/).
 
-
-[![Open deployed site on Netlify](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://www.netlify.com/)
-
+[Open deployed site on Netlify](https://www.netlify.com/)
 
 ## 🚀 Project Structure
 
