@@ -15,7 +15,6 @@ $color-secondary: #282828;
 $color-white: #FFFFFF;
 $color-grey: #E5E5E5;
 
-
 // Fonts
 
 $font-family: 'Poppins', sans-serif;
@@ -23,3 +22,27 @@ $font-base: 16px;
 
 $font-weight-base: 400;
 $font-weight-heading: 700;
+
+
+// Clamp values are automatically generated from:
+// https://www.fluid-type-scale.com/
+
+
+$font-size-base: clamp(1rem, 0.26vw + 0.94rem, 1.13rem);
+$line-height-base: clamp(1.5rem, 0.38vw + 1.41rem, 1.69rem);
+
+$font-size-heading: clamp(2.5rem, 3.07vw + 1.78rem, 4rem);
+$line-height-heading: clamp(3rem, 3.45vw + 2.19rem, 4.69rem);
+
+// Spacing
+
+$space-xs: 8px;
+$space-s: 12px;
+$space-m: 16px;
+$space-l: 24px;
+$space-xl: 40px;
+$space-xl2: 48px;
+
+// Layout
+
+$container-width: 1158px;

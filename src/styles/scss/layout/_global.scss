@@ -1,3 +1,17 @@
-body {
-    background-color: $color-primary;
-}
+ /* Global */
+
+ body {
+     min-height: 100vh;
+     background-color: $color-white;
+ }
+
+
+ .container {
+     width: min(100% - ($space-m * 2), $container-width);
+     margin-inline: auto;
+
+
+     @include media(md) {
+         width: min(100% - ($space-l * 2), $container-width);
+     }
+ }
