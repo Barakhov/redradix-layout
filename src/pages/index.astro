@@ -57,6 +57,7 @@ import Button from '../components/BaseButton.astro'
     }
 
     &__image-container {
+      aspect-ratio: 130 / 123;
       margin-bottom: $space-l;
       overflow: hidden;
       background-color: $hero-image-bg-color;
@@ -74,8 +75,6 @@ import Button from '../components/BaseButton.astro'
     }
 
     &__image {
-      aspect-ratio: 130 / 123;
-
       opacity: 0;
       -webkit-filter: blur(8px);
       transform: scale(1.2);
