@@ -1,15 +1,22 @@
 ---
-import '../styles/scss/main.scss'
 import Layout from '../layouts/BaseLayout.astro'
+import image from '../images/hero-image.webp'
 ---
 
 <Layout
   title="Redradix - Layout"
   description="This is a meta description for this page"
 >
+  <img src={image} alt="Clean and minimal desk setup" />
+
   <h1>Calidad, como cualidad</h1>
   <p>
     Diseño de experiencia de usuario Maquetación y diseño responsive Desarrollo
     por sprints
   </p>
 </Layout>
+
+<style lang="scss">
+  @import '../styles/scss/abstracts/_variables';
+  @import '../styles/scss/abstracts/_mixins';
+</style>

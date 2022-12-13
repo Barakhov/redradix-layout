@@ -1,0 +1,67 @@
+---
+import logo from '../images/redradix-logo.svg'
+import menu from '../icons/menu-icon.svg'
+---
+
+<header class="header">
+  <div class="container">
+    <div class="header__container">
+      <a class="header__logo" href="/">
+        <img src={logo} alt="Redradix Logo" />
+      </a>
+      <div class="header__menu-button">
+        <img class="header__menu-icon" src={menu} alt="Menu button" />
+      </div>
+    </div>
+  </div>
+</header>
+
+<style lang="scss">
+  @import '../styles/scss/abstracts/_variables';
+  @import '../styles/scss/abstracts/_mixins';
+
+  /* Local variables */
+  $logo-width-m: 22px;
+  $logo-width-d: 36px;
+
+  .header {
+    width: 100%;
+
+    @include media(md) {
+      // position: fixed;
+      min-height: $header-height-d;
+    }
+
+    &__container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      align-items: stretch;
+
+      padding: $space-s 0;
+
+      @include media(md) {
+        padding: $space-xl2 0;
+      }
+    }
+
+    &__logo {
+      max-width: $logo-width-m;
+
+      @include media(md) {
+        max-width: $logo-width-d;
+      }
+    }
+
+    &__menu-button {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+    }
+
+    &__menu-icon {
+      max-width: $space-l;
+    }
+  }
+</style>
