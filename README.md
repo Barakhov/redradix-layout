@@ -1,8 +1,8 @@
 # Redradix Layout Test
 
-This layout test has been built using [Astro](https://astro.build/){:target="_blank"}.
+This layout test has been built using [Astro](https://astro.build/).
 
-[Site deployed to Netlify](https://glittery-yeot-6905b2.netlify.app/){:target="_blank"}
+[Site deployed to Netlify](https://glittery-yeot-6905b2.netlify.app/)
 
 ## 🧞 Commands
 
