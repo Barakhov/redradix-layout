@@ -25,11 +25,13 @@ const { to, aria, secondary = '' } = Astro.props
   $button-hover-lighten: 40%;
   $button-font-size: 18px;
   $button-line-height: 27px;
+  $button-height: 59px;
 
   .button {
     cursor: pointer;
     display: block;
     width: 100%;
+    min-height: $button-height;
 
     color: $color-secondary;
     background-color: $color-primary;
