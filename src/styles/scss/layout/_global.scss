@@ -52,7 +52,8 @@
          position: absolute;
          right: 0;
          top: 50%;
-         transform: translateY(-33%);
+         transform: translateY(-66%);
+         animation: highligtCaret $base-timing * 8 3 ease-in-out $base-timing * 4 alternate forwards;
      }
 
      &::after {
@@ -64,6 +65,10 @@
          position: absolute;
          bottom: 6px;
          left: 0;
+
+         transform: scaleX(0);
+         transform-origin: left;
+         animation: highligtLine $base-timing * 4 $base-cubic-bezier $base-timing * 4 forwards;
 
          @include media(md) {
              height: 4px;

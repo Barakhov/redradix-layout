@@ -10,7 +10,7 @@ const { to, aria, secondary = '' } = Astro.props
 
 <a
   href={to}
-  class={`button ${secondary && 'button__secondary'}`}
+  class={`button ${secondary && 'button--secondary'}`}
   aria-label={aria}
 >
   <slot />
@@ -61,7 +61,7 @@ const { to, aria, secondary = '' } = Astro.props
         lighten($color-secondary, $button-hover-lighten);
     }
 
-    &__secondary {
+    &--secondary {
       color: $color-white;
       background-color: $color-secondary;
       border-color: $color-secondary;
