@@ -23,10 +23,8 @@ $font-base: 16px;
 $font-weight-base: 400;
 $font-weight-heading: 700;
 
-
 // Clamp values are automatically generated from:
 // https://www.fluid-type-scale.com/
-
 
 $font-size-base: clamp(1rem, 0.26vw + 0.94rem, 1.13rem);
 $line-height-base: clamp(1.5rem, 0.38vw + 1.41rem, 1.69rem);
@@ -47,3 +45,7 @@ $space-xl2: 48px;
 
 $container-width: 1158px;
 $header-height-d: 136px;
+
+// Timing
+
+$base-timing: 0.16s;

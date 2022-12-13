@@ -3,6 +3,23 @@
  body {
      min-height: 100vh;
      background-color: $color-white;
+
+     @include media(md) {
+         background: $color-white;
+         background: linear-gradient(90deg, $color-white 0%, $color-white 63%, $color-primary 63%, $color-primary 100%);
+     }
+ }
+
+ main {
+     @include media(md) {
+         min-height: calc(100vh - $header-height-d);
+         display: flex;
+         align-items: center;
+     }
+
+     @include media(lg) {
+         align-items: flex-end;
+     }
  }
 
 
