@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/BaseLayout.astro'
 import Button from '../components/BaseButton.astro'
+import HeadingSelect from '../components/HeadingSelect.astro'
 ---
 
 <Layout
@@ -19,7 +20,12 @@ import Button from '../components/BaseButton.astro'
       <h1 class="hero__title">
         <span class="hero__title-word">Calidad,</span>
         como
-        <span class="heading-highlight">cualidad</span>
+        <HeadingSelect
+          options={[
+            { name: 'cualidad', id: '1', selected: true },
+            { name: 'servicio', id: '2' }
+          ]}
+        />
       </h1>
       <p class="hero__text">
         Diseño de experiencia de usuario Maquetación y diseño responsive

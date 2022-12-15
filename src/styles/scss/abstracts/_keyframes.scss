@@ -13,24 +13,3 @@
         transform: scale(1);
     }
 }
-
-
-@keyframes highligtLine {
-    0% {
-        transform: scaleX(0);
-    }
-
-    100% {
-        transform: scaleX(1);
-    }
-}
-
-@keyframes highligtCaret {
-    0% {
-        transform: translateY(-66%);
-    }
-
-    100% {
-        transform: translateY(-33%);
-    }
-}

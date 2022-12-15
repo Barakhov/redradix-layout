@@ -1,0 +1,183 @@
+---
+export interface Props {
+  options: object[]
+}
+
+const { options } = Astro.props
+---
+
+<div class="heading-select">
+  <div class="heading-select__selected" tabIndex="0">
+    {
+      options.map((option) => {
+        return option.selected === true ? option.name : null
+      })
+    }
+  </div>
+
+  <ul class="heading-select__options">
+    {
+      options.map((option) => (
+        <li class="heading-select__option">
+          <input
+            id={`id-${option.id}`}
+            type="radio"
+            class="heading-select__radio"
+          />
+          <label for={`id-${option.id}`} class="heading-select__label">
+            {option.name}
+          </label>
+        </li>
+      ))
+    }
+  </ul>
+</div>
+
+<style lang="scss">
+  @import '../styles/scss/abstracts/_variables';
+  @import '../styles/scss/abstracts/_mixins';
+
+  /* Local variables */
+  $heading-select-icon-width: clamp(1.25rem, 2.55vw + 0.65rem, 2.5rem);
+  $heading-select-icon-height: clamp(0.63rem, 1.28vw + 0.33rem, 1.25rem);
+  $heading-select-underline-height-m: 2px;
+  $heading-select-underline-height-d: 4px;
+  $heading-select-options-max-height: 260px;
+
+  .heading-select {
+    cursor: pointer;
+    display: inline-flex;
+    flex-direction: column;
+    position: relative;
+
+    &:has(.heading-select__options--active) .heading-select__selected::before {
+      transform: rotateX(180deg);
+    }
+
+    &__selected {
+      position: relative;
+      padding-right: calc($space-xs + $heading-select-icon-width);
+      white-space: nowrap;
+
+      &::before {
+        content: '';
+        display: block;
+        background-image: url('/assets/icons/caret-down-icon.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+        width: $heading-select-icon-width;
+        height: $heading-select-icon-height;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transition: transform $base-timing $base-cubic-bezier;
+        transform-origin: center;
+        transform: translateY(-33%);
+      }
+
+      &::after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: $heading-select-underline-height-m;
+        background-color: $color-grey;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+
+        @include media(md) {
+          height: $heading-select-underline-height-d;
+        }
+      }
+    }
+
+    &__options {
+      max-height: 0;
+      width: 100%;
+      opacity: 0;
+      overflow: hidden;
+
+      position: absolute;
+      top: calc(100% - $heading-select-underline-height-m);
+      order: 1;
+
+      border: 1px solid $color-grey;
+      border-top: $heading-select-underline-height-m solid $color-grey;
+      background-color: $color-white;
+
+      transition: all $base-timing * 2;
+
+      @include media(md) {
+        top: calc(100% - $heading-select-underline-height-d);
+        border-top: $heading-select-underline-height-d solid $color-grey;
+      }
+
+      &.heading-select__options--active {
+        max-height: $heading-select-options-max-height;
+        min-width: 100%;
+        width: fit-content;
+        opacity: 1;
+        overflow-y: scroll;
+        box-shadow: $base-shadow-values rgba($color-secondary, 0.5);
+      }
+
+      &::-webkit-scrollbar {
+        width: $heading-select-underline-height-d;
+        background-color: $color-white;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: $color-grey;
+      }
+    }
+
+    &__option {
+      padding: $space-xs;
+      transition: all $base-timing $base-cubic-bezier;
+
+      &:hover {
+        background-color: $color-primary;
+      }
+    }
+
+    &__label {
+      cursor: pointer;
+    }
+
+    &__radio {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  const element = document.querySelector('.heading-select')
+  const selected = element.querySelector('.heading-select__selected')
+  const optionsContainer = element.querySelector('.heading-select__options')
+  const optionsList = element.querySelectorAll('.heading-select__option')
+
+  /* Remove active class */
+  function removeActiveClass() {
+    optionsContainer.classList.remove('heading-select__options--active')
+  }
+
+  /* Update selected text */
+  optionsList.forEach((option) => {
+    option.addEventListener('click', () => {
+      selected.innerHTML = option.querySelector('label').innerHTML
+      removeActiveClass()
+    })
+  })
+
+  /* Toggle active class on options container*/
+  selected.addEventListener('click', () => {
+    optionsContainer.classList.toggle('heading-select__options--active')
+  })
+
+  /* Click outside of the element*/
+  document.addEventListener('click', (event) => {
+    if (event.target !== element && !element.contains(event.target)) {
+      removeActiveClass()
+    }
+  })
+</script>
